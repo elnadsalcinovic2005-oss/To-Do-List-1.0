@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <h1>To-Do List</h1>
+        <p class="subtitle">Simple tasks, smarter days.</p>
+      </header>
+
+      <section class="task-entry">
+        <form id="task-form">
+          <input id="task-input" type="text" placeholder="Add a new task..." aria-label="New task">
+          <select id="task-priority" aria-label="Priority">
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="low">Low</option>
+          </select>
+          <input id="task-due" type="date" aria-label="Due date">
+          <select id="task-category" aria-label="Category">
+            <option value="personal">Personal</option>
+            <option value="work">Work</option>
+            <option value="school">School</option>
+            <option value="other">Other</option>
+          </select>
+          <input id="task-notes" type="text" placeholder="Notes (optional)" aria-label="Notes">
+          <button id="add-btn" type="submit">Add</button>
+        </form>
+      </section>
+
+      <section class="task-stats">
+        <div class="counts">
+          <div class="count-item">Completed: <span id="completed-count">0</span></div>
+          <div class="count-item">Incomplete: <span id="incomplete-count">0</span></div>
+        </div>
+      </section>
+
+      <section class="task-controls">
+        <input id="search-input" class="search-input" type="search" placeholder="Search tasks...">
+        <div class="filters">
+          <button class="filter-btn" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="active">Active</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+          <button class="filter-btn" data-filter="overdue">Overdue</button>
+        </div>
+        <select id="sort-select" class="sort-select">
+          <option value="created">Sort: Created</option>
+          <option value="name">Sort: Name</option>
+          <option value="priority">Sort: Priority</option>
+          <option value="due">Sort: Due Date</option>
+        </select>
+        <button id="clear-completed" class="clear-btn">Clear Completed</button>
+      </section>
+
+      <section class="task-progress">
+        <div class="progress-wrap">
+          <div class="progress" aria-hidden="true">
+            <div id="progress-bar" class="progress-bar"></div>
+          </div>
+          <div id="progress-text" class="progress-text">0% Complete</div>
+        </div>
+      </section>
+
+      <section class="task-list">
+        <ul id="tasks" aria-live="polite"></ul>
+      </section>
+
+      <footer class="app-footer">Tasks are saved in your browser via localStorage.</footer>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

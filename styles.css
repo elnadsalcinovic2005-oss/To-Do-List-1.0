@@ -1,0 +1,74 @@
+:root{
+  --bg:#eaf4ff;
+  --card:#ffffff;
+  --accent:#1e88ff;
+  --accent-2:#5ab0ff;
+  --muted:#6b7280;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+body{background:linear-gradient(180deg,var(--bg),#f5fbff);display:flex;align-items:center;justify-content:center;padding:32px}
+.app{width:100%;max-width:760px;background:var(--card);border-radius:14px;padding:24px;box-shadow:0 8px 30px rgba(30,40,60,.08)}
+.app-header{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.app-header h1{margin:0;color:var(--accent)}
+.subtitle{margin:0;color:var(--muted);font-size:0.95rem}
+
+.task-entry{margin-top:18px}
+#task-form{display:flex;gap:12px}
+#task-input{flex:1;padding:12px 14px;border-radius:10px;border:1px solid rgba(30,40,60,.08);outline:none;box-shadow:0 6px 18px rgba(30,40,60,.03)}
+#task-input{flex:1;padding:12px 14px;border-radius:10px;border:1px solid rgba(30,40,60,.08);outline:none;box-shadow:0 6px 18px rgba(30,40,60,.03)}
+#task-due{padding:10px;border-radius:10px;border:1px solid rgba(30,40,60,.06);background:white}
+#task-category{padding:10px;border-radius:10px;border:1px solid rgba(30,40,60,.06);background:white}
+#task-notes{padding:10px;border-radius:10px;border:1px solid rgba(30,40,60,.06);background:white}
+#task-input:focus{border-color:var(--accent-2);box-shadow:0 8px 30px rgba(30,136,255,.08)}
+#add-btn{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white;border:none;padding:12px 18px;border-radius:10px;cursor:pointer;box-shadow:0 8px 20px rgba(34,108,255,.12);font-weight:600}
+#add-btn:hover{transform:translateY(-1px)}
+
+.task-stats{margin-top:16px;display:flex;justify-content:flex-start}
+.counts{display:flex;gap:18px;color:var(--muted);font-weight:600}
+
+.task-controls{display:flex;gap:10px;align-items:center;margin-top:12px}
+.search-input{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(30,40,60,.06)}
+.filters{display:flex;gap:6px}
+.filter-btn{background:transparent;border:1px solid rgba(30,40,60,.06);padding:8px 10px;border-radius:8px;cursor:pointer;color:var(--muted)}
+.filter-btn.active{background:var(--accent);color:white;border-color:var(--accent)}
+.sort-select{padding:8px;border-radius:8px;border:1px solid rgba(30,40,60,.06)}
+.clear-btn{background:transparent;border:1px solid rgba(30,40,60,.06);padding:8px 10px;border-radius:8px;cursor:pointer;color:#ef4444}
+
+.task-list{margin-top:18px}
+#tasks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.task-item{display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(250,250,252,1),#ffffff);box-shadow:0 6px 16px rgba(30,40,60,.04)}
+.task-item .label{flex:1;display:flex;align-items:center;gap:10px}
+.task-meta{display:flex;flex-direction:column;gap:4px}
+.task-meta .small{font-size:0.85rem;color:var(--muted)}
+.task-item input[type="checkbox"]{width:18px;height:18px;border-radius:4px}
+.task-text{font-size:1rem;color:#111827}
+.task-text.completed{text-decoration:line-through;color:var(--muted)}
+.task-actions{display:flex;gap:8px}
+.btn-icon{background:transparent;border:none;padding:8px;border-radius:8px;cursor:pointer;color:var(--muted)}
+.btn-icon:hover{background:rgba(30,40,60,.03)}
+.delete{color:#ef4444}
+
+/* Priority badge and select */
+.priority-badge{padding:6px 8px;border-radius:999px;font-weight:700;font-size:0.8rem;color:white}
+.priority-high{background:#ef4444}
+.priority-medium{background:var(--accent)}
+.priority-low{background:#10b981}
+.task-priority-select{border-radius:8px;border:1px solid rgba(0,0,0,.06);padding:6px;background:white}
+
+/* Progress bar */
+.progress-wrap{display:flex;align-items:center;gap:12px;margin-top:8px}
+.progress{flex:1;background:linear-gradient(90deg,rgba(30,40,60,.04),rgba(30,40,60,.02));height:12px;border-radius:999px;overflow:hidden}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px;transition:width .3s ease}
+.progress-text{min-width:120px;color:var(--muted);font-weight:600;text-align:right}
+
+/* overdue */
+.overdue .task-text{color:#b91c1c}
+.overdue .small{color:#b91c1c}
+
+@media (max-width:520px){
+  .app{padding:16px}
+  #task-input{padding:10px}
+  #add-btn{padding:10px 12px}
+  .counts{flex-direction:column;gap:6px}
+}
